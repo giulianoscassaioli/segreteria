@@ -64,7 +64,8 @@ public class CorsoController {
 		DataBase database= ctx.getBean(DataBase.class);
 		corso.setCodice(codice);
 		if(result.hasErrors()) {
-			return "corsoerroreesami";
+			model.addAttribute("corso", corso);
+			return "aggiornacorso";
 		}
 		
 		for(int i=0; i<database.getCorsi().size(); i++) {
@@ -88,7 +89,8 @@ public class CorsoController {
 	@PostMapping("/aggiungiCorso2")
 	public String aggiungiCorso2(@Valid Corso corso,BindingResult result,Model model){
 		if(result.hasErrors()) {
-			return "corsoerroreesami";
+			model.addAttribute("corso", corso);
+			return "aggiungicorso";
 		}
 		DataBase database= ctx.getBean(DataBase.class);
 		if(database.checkCodice(corso.getCodice())) {

@@ -18,7 +18,7 @@ public class Corso {
 	private String nome;
 	@NotEmpty
 	private String indirizzo;
-	@Min(value = 10)
+	@Min(value = 10 , message = "il numero esami deve essere superiore a 10!")
 	private int numeroEsami;
 
 }
