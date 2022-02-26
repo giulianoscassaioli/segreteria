@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
+<meta charset="ISO-8859-1">
+
+<title>Pagina Studenti</title>
+</head>
+<body>
+
+<div class="container text-center">
+  <h1>Universita Atlantide</h1>
+  </div>
+
+<header><h1 class="text-center"> ELENCO STUDENTI</h1> </header>
+<div class="intro">
+<table class="table table-hover table-sm">
+	<tr>
+	<th><h4>Matricola Studente</h4></th> 
+	<th><h4>Nome</h4></th>
+	<th><h4>Cognome</h4></th>
+	<th><h4>Email</h4></th>
+	<th><h4>Data di Nascita</h4></th>
+	<th><h4>Indirizzo</h4></th>
+	<th><h4>Citta</h4></th>
+	<th><h4>Corso Frequentato</h4></th>
+	</tr>
+	   <div th:each="studente: ${database.getStudenti()}">
+   		<tr>
+   		<td th:text="${studente.getMatricola()}" th:field="*{matricola}"></td>
+   		<td th:text="${studente.getNome()}" th:field="*{nome}"></td>
+   		<td th:text="${studente.getCognome()}" th:field="*{cognome}"></td>
+   		<td th:text="${studente.getEmail()}" th:field="*{email}"></td>
+   		<td th:text="${studente.getDataN()}" th:field="*{dataN}"></td>
+   		<td th:text="${studente.getIndirizzo()}" th:field="*{indirizzo}"></td>
+   		<td th:text="${studente.getCitta()}" th:field="*{citta}"></td>
+   		<td th:text="${studente.getCorso().getNome()}" th:field="*{nome}"></td>
+   		<form method="get" action="#" th:action="@{/aggiornaStudente/{matricola}(matricola=${studente.getMatricola()})}">
+   		<td>
+   		<input type="submit" value="Aggiorna">
+   		</td>
+   		</form>
+   		<form method="get" action="#" th:action="@{/eliminaStudente/{matricola}(matricola=${studente.getMatricola()})}">
+   		<td>
+   		<input type= "submit" onclick="return confirm('Sei sicuro di voler cancellare questo studente?')" value="Elimina">
+   		</td>
+   		</form>
+   		</tr>
+	</div>
+</table>
+</div>
+<div class="text-center">
+<a href="#" class="btn btn-info" th:href="@{/studenteAggiungi}">Aggiungi Studente</a>
+<a href="#" class="btn btn-info" th:href="@{/homestud}">Torna alla home</a>
+</div>
+<div class="footer bg-secondary p-2 text-center mt-3">
+			<p>copyright &copy; Powered by Epicode School<p>
+		</div>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+.barra{
+	
+	text-align: center;
+}
+.intro{
+	
+	background-color: #DDDDDD;
+}
+
+.tabella{
+  width: 100%;
+  size: 40%;
+  margin-bottom: 20px;
+	
+}
+
+.compila{
+  size: 50%;
+  margin-bottom: 20px;
+	
+}

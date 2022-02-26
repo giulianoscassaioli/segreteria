@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/style.css}"/>
+<meta charset="ISO-8859-1">
+
+<title>Pagina Aggiornamento Studente</title>
+</head>
+<body>
+
+<div class="container text-center">
+  <h1>Universita Atlantide</h1>
+  </div>
+<div class="bg-light mb-2">
+<h1 class="text-center"> AGGIORNA LO STUDENTE CON MATRICOLA <span th:text="${matricola}"></span> </h1>
+<div class="container text-center"></div>
+<form action="#" th:action="@{/aggiornaStudente2/{matricola}(matricola=${studente.getMatricola()})}" th:object="${studente}" method="post">
+	<div class="form-group row">
+	    <div class="col-sm-3">
+	Matricola  <input class ="form-control" type="text" th:field="*{matricola}" disabled>
+	</div>
+	   </div>
+	   <div class="form-group row">
+	    <div class="col-sm-3">
+	Nome <input class ="form-control" type="text" th:field="*{nome}" required>
+	</div>
+	   </div>
+	   <div class="form-group row">
+	    <div class="col-sm-3">
+	Cognome <input class ="form-control" type="text" th:field="*{cognome}" required>
+	</div>
+	   </div>
+	   <div class="form-group row">
+	    <div class="col-sm-3">
+	Email <input class ="form-control" type="text" th:field="*{email}" required>
+	</div>
+	   </div>
+	    <div class="form-group row">
+	    <div class="col-sm-3">
+	Data di Nascita <input class ="form-control" type="date"  pattern="yyyy-MM-dd" th:field="*{dataN}" required>
+	</div>
+	   </div>
+	     <div class="form-group row">
+	    <div class="col-sm-3">
+	Indirizzo <input class ="form-control" type="text" th:field="*{indirizzo}" required>
+	</div>
+	   </div>
+	       <div class="form-group row">
+	    <div class="col-sm-3">
+	Citta <input class ="form-control" type="text" th:field="*{citta}" required>
+	</div>
+	   </div>
+	     <div class="form-group row">
+	    <div class="col-sm-3"> 
+    Corso<select th:field="*{corso}">
+   		<div th:each="corso: ${corsi}">
+      <option th:value="${corso.codice}" th:text="${corso.nome}"></option>
+      <div>
+    </select> <br>
+    </div>
+	   </div>
+     <input type="submit" value="Aggiorna">
+</form>	
+</div>      
+ <div class="text-center">   
+<a class="btn btn-info" href="#" th:href="@{/homestud}">Torna alla home</a>
+</div>
+
+<div class="footer bg-secondary p-2 text-center mt-2">
+			<p>copyright &copy; Powered by Epicode School<p>
+		</div>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
