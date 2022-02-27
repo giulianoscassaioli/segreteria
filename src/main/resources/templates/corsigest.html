@@ -25,12 +25,12 @@
   </div>
 <div class="intro mb-2">
 <header><h1 class="text-center"> ELENCO CORSI</h1> </header>
-<table class="table table-hover">
+<table class="table table-hover table-sm">
 	<tr>
-	<th><h3>Codice Corso</h3></th> 
-	<th><h3>Nome Corso</h3></th>
-	<th><h3>Indirizzo Corso</h3></th>
-	<th><h3>NEsami</h3></th>
+	<th>Codice Corso</th> 
+	<th>Nome Corso</th>
+	<th>Indirizzo Corso</th>
+	<th>NEsami</th>
 	</tr>
 	
 	<div th:each="corso: ${database.getCorsi()}">
